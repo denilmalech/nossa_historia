@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Denilma ❤️ Davi</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#fff7e6;
+}
+
+/* ENTRADA */
+
+.entrada{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#ff8c00,#ffd700);
+color:white;
+text-align:center;
+}
+
+.foto-casal{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+margin-bottom:20px;
+}
+
+button{
+padding:15px 25px;
+border:none;
+border-radius:20px;
+background:linear-gradient(45deg,#ff69b4,#ffd700);
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* PAINEL */
+
+.painel{
+display:grid;
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-rows: auto auto;
+gap:15px;
+padding:20px;
+height:100vh;
+box-sizing:border-box;
+}
+
+/* CARDS */
+
+.card{
+background:white;
+border-radius:12px;
+padding:12px;
+box-shadow:0 0 8px rgba(0,0,0,0.15);
+overflow:auto;
+}
+
+/* CABEÇALHOS */
+
+header{
+background:#ff8c00;
+color:white;
+padding:6px 10px;
+border-radius:8px;
+margin-bottom:8px;
+font-size:14px;
+}
+
+/* POSIÇÕES */
+
+.historia{ grid-column:1; grid-row:1; }
+
+.galeria{
+grid-column:1;
+grid-row:2;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+}
+
+.timeline-card{
+grid-column:2;
+grid-row:1 / span 2;
+}
+
+.musicas{ grid-column:3; grid-row:1; }
+
+.quiz-card{ grid-column:3; grid-row:2; }
+
+/* TIMELINE */
+
+.timeline{
+border-left:3px solid #ff8c00;
+padding-left:12px;
+}
+
+.evento{
+background:white;
+padding:8px;
+margin:10px 0;
+border-radius:8px;
+font-size:13px;
+box-shadow:0 0 5px rgba(0,0,0,0.2);
+}
+
+/* POLAROID */
+
+.polaroid{
+background:white;
+padding:6px;
+width:110px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+transform:rotate(-2deg);
+transition:0.3s;
+font-size:11px;
+}
+
+.polaroid:hover{ transform:scale(1.05); }
+
+.polaroid img{
+width:100%;
+height:90px;
+object-fit:cover;
+}
+
+/* MUSICAS */
+
+.musica{
+margin-bottom:12px;
+font-size:13px;
+}
+
+.musica iframe{ height:80px; }
+
+/* QUIZ */
+
+.resposta{
+padding:6px;
+font-size:13px;
+margin:4px auto;
+width:90%;
+border:none;
+border-radius:10px;
+background:#ff8c00;
+color:white;
+cursor:pointer;
+}
+
+/* CARTA */
+
+#carta{
+display:none;
+background:#fff0f5;
+padding:20px;
+border-radius:15px;
+margin-top:15px;
+}
+
+/* BARRA */
+
+.barra-container{
+width:100%;
+height:20px;
+background:#eee;
+border-radius:20px;
+margin:10px 0;
+overflow:hidden;
+}
+
+.barra-progresso{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#ff69b4,#ffd700);
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+
+.painel{
+grid-template-columns:1fr;
+height:auto;
+}
+
+.timeline-card,
+.musicas,
+.quiz-card,
+.historia,
+.galeria{
+grid-column:1;
+grid-row:auto;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ENTRADA -->
+<section class="entrada">
+
+<img src="imagens/nossa_foto.jpeg" class="foto-casal">
+
+<h1>🐉 Denilma ❤️ Davi</h1>
+<p>Nossa saga começou em 13 de Abril de 2023</p>
+
+<button onclick="entrar()">Começar nossa história ✨</button>
+
+</section>
+
+<!-- CONTEÚDO -->
+<section id="conteudo" style="display:none;">
+
+<div class="painel">
+
+<!-- HISTÓRIA + CONTADOR -->
+<div class="card historia">
+
+<header>⏳ Nossa História</header>
+
+<p id="tempo"></p>
+<p id="poder"></p>
+<p id="batimentos"></p>
+
+<div class="barra-container">
+<div class="barra-progresso" id="barra"></div>
+</div>
+
+<p id="aniversarioTexto"></p>
+
+</div>
+
+<!-- TIMELINE -->
+<div class="card timeline-card">
+
+<header>📖 Linha do tempo</header>
+
+<div class="timeline">
+
+<div class="evento">
+<h3>💘 20/10/2022</h3>
+<p>Nosso primeiro contato - você achou que eu ia assaltar você haha.</p>
+</div>
+
+<div class="evento">
+<h3>✨ Nosso primeiro encontro - 21/10/2022</h3>
+<p>Aqui tu ganhou tua fama, papo legal, me ouviu quando eu precisei, disse que não queria namorar (queria casar é óbvio, eu que não entendi). Aqui foi onde surgiu o famoso suco de laranja, homem responsável rs.</p>
+</div>
+
+<div class="evento">
+<h3>🌟 O pedido de namoro - 13/04/2023</h3>
+<p>O pedido mais aleatório que já vi... Depois da transa o cabra me olha e me pede em namoro! "Assim, sem nem me avisar mana"</p>
+</div>
+
+<div class="evento">
+<h3>🌟 O presente de namoro - 21/05/2023</h3>
+<p>Aquele churrasco rendeu né, uma multa, uma boa transa e um filho haha.</p>
+</div>
+
+<div class="evento">
+<h3>🌟 Nascimento do Vitor - 12/02/2024</h3>
+<p>Neste dia nasceu o maior presente das nossas vidas e eu vi você se transformando em pai, seu amor, cuidado e dedicação por mim e por ele, enquanto estávamos tão frágeis foi muito importante e ressignificou a maternidade pra mim, eu te amo muito por isso!</p>
+</div>
+
+</div>
+</div>
+
+<!-- MUSICAS -->
+<div class="card musicas">
+
+<header>🎵 Músicas que dedico a nós dois</header>
+
+<div class="musica">
+<p><strong>Mirrors</strong></p>
+<p>Representa como nos completamos.</p>
+<iframe src="https://open.spotify.com/embed/track/4rHZZAmHpZrA3iH5zx8frV" width="100%"></iframe>
+</div>
+
+<div class="musica">
+<p><strong>Those Eyes</strong></p>
+<p>Calmaria e conforto.</p>
+<iframe src="https://open.spotify.com/embed/track/50x1Ic8CaXkYNvjmxe3WXy" width="100%"></iframe>
+</div>
+
+<div class="musica">
+<p><strong>Until I Found You</strong></p>
+<p>Sentimento de destino.</p>
+<iframe src="https://open.spotify.com/embed/track/0T5iIrXA4p5GsubkhuBIKV" width="100%"></iframe>
+</div>
+
+<div class="musica">
+<p><strong>Lisboa</strong></p>
+<p>Construindo sonhos juntos.</p>
+<iframe src="https://open.spotify.com/embed/track/2o2xhyri4aJUtgMGkf5P0J" width="100%"></iframe>
+</div>
+
+<div class="musica">
+<p><strong>Sorriso Resplandecente</strong></p>
+<p>Nossa abertura de anime ❤️</p>
+<iframe src="https://open.spotify.com/embed/track/5EzmwLPfVg0SDqqLb6wlwt" width="100%"></iframe>
+</div>
+
+</div>
+
+<!-- GALERIA -->
+<div class="card galeria">
+
+<header>📸 Galeria</header>
+
+<div class="polaroid">
+<img src="imagens/momento_especial.jpeg">
+<p>Nosso momento especial ❤️</p>
+</div>
+
+<div class="polaroid">
+<img src="imagens/risadas_com_voce.jpeg">
+<p>Risadas que amo viver com você ✨</p>
+</div>
+
+<div class="polaroid">
+<img src="imagens/nossos_registros.jpeg">
+<p>A vida com você é leve 🐉</p>
+</div>
+
+<div class="polaroid">
+<img src="imagens/WhatsApp Image 2026-02-12 at 23.36.48 (1).jpeg">
+<p>Obrigada por cada ano ao meu lado🐉</p>
+</div>
+
+</div>
+
+<!-- QUIZ -->
+<div class="card quiz-card">
+
+<header>❓ Teste seu conhecimento sobre a gente</header>
+
+<div id="quiz">
+<h3 id="pergunta"></h3>
+<div id="respostas"></div>
+</div>
+
+<div id="carta">
+<h3>💌 Carta Secreta</h3>
+<p>Como você foi muito bem, pode escolher seu prêmio (não tem impedimentos rs) ❤️</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<script>
+
+function entrar(){
+document.querySelector(".entrada").style.display="none";
+document.getElementById("conteudo").style.display="block";
+}
+
+/* CONTADOR */
+
+const dataInicio = new Date("2023-04-13");
+
+function atualizarTempo(){
+
+const agora = new Date();
+const diff = agora - dataInicio;
+
+const segundosTotais = Math.floor(diff/1000);
+const minutosTotais = Math.floor(segundosTotais/60);
+const horasTotais = Math.floor(minutosTotais/60);
+const diasTotais = Math.floor(horasTotais/24);
+
+const anos = Math.floor(diasTotais/365);
+const dias = diasTotais%365;
+const horas = horasTotais%24;
+const minutos = minutosTotais%60;
+const segundos = segundosTotais%60;
+
+document.getElementById("tempo").innerText =
+`Estamos juntos há ${diasTotais} dias ❤️
+Isso significa ${anos} anos, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos juntos.`;
+
+document.getElementById("poder").innerText =
+`⚡ Poder Sayajin: ${(diasTotais*9000).toLocaleString()}`;
+
+const batimentos = minutosTotais*70*2;
+
+document.getElementById("batimentos").innerText =
+`💓 ${batimentos.toLocaleString()} batimentos juntos`;
+
+/* BARRA */
+
+let prox = new Date(agora.getFullYear(),3,13);
+
+if(agora>prox) prox=new Date(agora.getFullYear()+1,3,13);
+
+const ult = new Date(prox.getFullYear()-1,3,13);
+
+const progresso = ((agora-ult)/(prox-ult))*100;
+
+document.getElementById("barra").style.width=progresso+"%";
+
+document.getElementById("aniversarioTexto").innerText =
+`🎉 ${progresso.toFixed(1)}% até o próximo aniversário`;
+
+}
+
+setInterval(atualizarTempo,1000);
+
+/* QUIZ */
+
+const perguntas=[
+{pergunta:"Onde foi nosso primeiro encontro?",
+respostas:["Shopping","Praça","Saindo pra comer","Cinema"],correta:2},
+
+{pergunta:"Qual anime eu mais amo?",
+respostas:["Naruto","Dragon Ball","Darling","Attack on Titan"],correta:3},
+
+{pergunta:"Qual bebida virou sua marca registrada?",
+respostas:["Refrigerante","Suco de laranja","Cerveja","Café"],correta:1},
+
+{pergunta:"Quando começamos a namorar?",
+respostas:["21/10/2022","13/04/2023","21/05/2023","01/01/2023"],correta:1},
+
+{pergunta:"O que construímos juntos?",
+respostas:["Viagem","Casa","Nossa família","Carro"],correta:2}
+];
+
+let atual=0;
+let pontos=0;
+
+function mostrarPergunta(){
+
+const p=perguntas[atual];
+document.getElementById("pergunta").innerText=p.pergunta;
+
+const resp=document.getElementById("respostas");
+resp.innerHTML="";
+
+p.respostas.forEach((r,i)=>{
+const btn=document.createElement("button");
+btn.innerText=r;
+btn.classList.add("resposta");
+btn.onclick=()=>responder(i);
+resp.appendChild(btn);
+});
+
+}
+
+function responder(i){
+
+if(i===perguntas[atual].correta) pontos++;
+
+atual++;
+
+if(atual<perguntas.length){
+mostrarPergunta();
+}else{
+
+const porcent=(pontos/perguntas.length)*100;
+
+document.getElementById("quiz").innerHTML=
+`<h3>Você acertou ${porcent.toFixed(0)}%</h3>`;
+
+if(porcent>90){
+document.getElementById("carta").style.display="block";
+}
+
+}
+
+}
+
+mostrarPergunta();
+
+</script>
+
+</body>
+</html>
